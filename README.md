@@ -1,8 +1,15 @@
 # Issue Tracker
 The application can be used to create developers, create issues/bugs, assign and estimate them.
 
-## To run the application
+## To build and run the application
+Building the application:
+
+`./mvnw clean compile`
+
+Running in local:
+
 `./mvnw spring-boot:run`
+
 The application's front end is available in `http://localhost:8080/html/index.html`
 
 ## API Spec
