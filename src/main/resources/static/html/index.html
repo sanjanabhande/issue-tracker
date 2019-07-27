@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>Issue Tracker</h2>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="developer-tab" data-toggle="tab" href="#developer" role="tab" aria-controls="developer" aria-selected="true" onclick="getAllDevelopers()">Developer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="story-tab" data-toggle="tab" href="#story" role="tab" aria-controls="story" aria-selected="false">Stories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="bug-tab" data-toggle="tab" href="#bug" role="tab" aria-controls="bug" aria-selected="false">Bugs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <!-- Developer tab start -->
+        <div class="tab-pane fade show active" id="developer" role="tabpanel" aria-labelledby="developer-tab">
+            <div class="container">
+                <br/>
+                <table class="table table-bordered">
+                    <tr id="createDeveloperButton">
+                        <td scope="col"><button class="btn btn-primary" onclick="showCreateDeveloper()">Create</button></td>
+                    </tr>
+                    <tr id="createDeveloperInput" style="display:none">
+                        <td scope="col">
+                            <div class="input-group mb-3">
+                                <input type="text" id="developer-name" class="form-control" placeholder="Developer's name" aria-label="Developer's name" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="save()">Save</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody id="developer-view">
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <!-- Developer tab end -->
+        <!-- Story tab start -->
+        <div class="tab-pane fade" id="story" role="tabpanel" aria-labelledby="story-tab">
+            <div class="container">
+                <br/>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" onclick="createNewStory()">Create</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" id="story-view"></div>
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="bug" role="tabpanel" aria-labelledby="bug-tab">
+            <div class="container">
+                <br/>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" onclick="createNewBug()">Create</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" id="bug-view"></div>
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="container">
+                <h2>Built and Developed by <a href="mailto:sanjana.bhande67@gmail.com">Sanjana Bhande</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Story Create/Edit Modal start--->
+<div class="modal fade" id="storyEditModal" tabindex="-1" role="dialog" aria-labelledby="storyEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form>
+                    <div class="form-group">
+                        <b><label class="modal-title" for="storyTitleInput">Story Title</label></b>
+                        <input type="text" class="form-control" id="storyTitleInput" placeholder="Title">
+                    </div>
+                </form>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <b><label for="storyDescriptionInput">Description</label></b>
+                        <input type="text" class="form-control" id="storyDescriptionInput" placeholder="Description">
+                    </div>
+                    <div class="form-group">
+                        <b><label for="storyStatusInput">Status</label></b>
+                        <select class="form-control"  id="storyStatusInput">
+                            <option value="NEW" selected>NEW</option>
+                            <option value="ESTIMATED">ESTIMATED</option>
+                            <option value="COMPLETED">COMPLETED</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <b><label for="storyEstimateInput">Estimate</label></b>
+                        <input type="number" class="form-control" id="storyEstimateInput" placeholder="Story Estimate">
+                    </div>
+                    <div class="form-group">
+                        <b><label for="storyDeveloperInput">Developer</label></b>
+                        <input type="text" class="form-control" id="storyDeveloperInput" placeholder="Developer">
+                    </div>
+                    <input type="hidden" class="form-control" id="storyId"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveStory()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Story Create/Edit Modal start--->
+<!-- Bug Create/Edit Modal start--->
+<div class="modal fade" id="bugEditModal" tabindex="-1" role="dialog" aria-labelledby="bugEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form>
+                    <div class="form-group">
+                        <b><label class="modal-title" for="bugTitleInput">Bug Title</label></b>
+                        <input type="text" class="form-control" id="bugTitleInput" placeholder="Title">
+                    </div>
+                </form>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <b><label for="bugDescriptionInput">Description</label></b>
+                        <input type="text" class="form-control" id="bugDescriptionInput" placeholder="Description">
+                    </div>
+                    <div class="form-group">
+                        <b><label for="bugStatusInput">Status</label></b>
+                        <select class="form-control" id="bugStatusInput">
+                            <option value="NEW" selected>NEW</option>
+                            <option value="VERIFIED">VERIFIED</option>
+                            <option value="RESOLVED">RESOLVED</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <b><label for="bugPriorityInput">Status</label></b>
+                            <select class="form-control"  id="bugPriorityInput">
+                                <option value="CRITICAL" selected>CRITICAL</option>
+                                <option value="MAJOR">MAJOR</option>
+                                <option value="MINOR">MINOR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b><label for="bugDeveloperInput">Developer</label></b>
+                        <input type="text" class="form-control" id="bugDeveloperInput" placeholder="Developer">
+                    </div>
+                    <input type="hidden" class="form-control" id="bugId"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveBug()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bug Create/Edit Modal start--->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/developer.js"></script>
+<script src="../js/story.js"></script>
+<script src="../js/bug.js"></script>
+</body>
+</html>

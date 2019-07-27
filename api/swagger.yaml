@@ -1,0 +1,250 @@
+swagger: "2.0"
+info:
+  description: "This is a simple issue tracker application. It is a spring boot app, which exposes  REST end points to create/delete developers and also create/update stories and bugs"
+  version: "1.0.0"
+  title: "Issue tracker application"
+  contact:
+    email: "sanjana.bhande67@gmail.com"
+host: "localhost:8080"
+tags:
+- name: "Developer"
+- name: "Stories"
+schemes:
+- "http"
+paths:
+  /developers:
+    get:
+      tags:
+      - "Developer"
+      summary: "Returns All Developers"
+      operationId: "getDevelopers"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Developers"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+      - "Developer"
+      summary: "Create a new Developer"
+      operationId: "createDeveloper"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Developer object to create"
+        required: true
+        schema:
+          $ref: "#/definitions/Developer"
+      responses:
+        201:
+          description: "successfully created"
+        409:
+          description: "Developer already existed"
+        400:
+          description: "Incorrect input"
+        500:
+          description: "Internal Server Error"
+    delete:
+      tags:
+      - "Developer"
+      summary: "Delete an existing Developer"
+      operationId: "deleteDeveloper"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Developer object to delete"
+        required: true
+        schema:
+          $ref: "#/definitions/Developer"
+      responses:
+        200:
+          description: "successfully deleted"
+        404:
+          description: "Developer not found"
+        400:
+          description: "Incorrect input"
+        500:
+          description: "Internal Server Error"
+  /stories:
+    get:
+      tags:
+      - "Stories"
+      summary: "Returns All Stories"
+      operationId: "getStories"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Stories"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+      - "Stories"
+      summary: "Create a new Story"
+      operationId: "createStory"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Story object to create"
+        required: true
+        schema:
+          $ref: "#/definitions/Story"
+      responses:
+        201:
+          description: "successfully created"
+        400:
+          description: "Incorrect input"
+        500:
+          description: "Internal Server Error"
+    put:
+      tags:
+      - "Stories"
+      summary: "Updates a Story"
+      operationId: "updateStory"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Story object to update"
+        required: true
+        schema:
+          $ref: "#/definitions/Story"
+      responses:
+        200:
+          description: "successfully updated"
+        400:
+          description: "Incorrect input"
+        500:
+          description: "Internal Server Error"
+  /bugs:
+    get:
+      tags:
+      - "Bugs"
+      summary: "Returns All Bugs"
+      operationId: "getBugs"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Bugs"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+      - "Bugs"
+      summary: "Create a new Bug"
+      operationId: "createBug"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Bug object to create"
+        required: true
+        schema:
+          $ref: "#/definitions/Bug"
+      responses:
+        201:
+          description: "successfully created"
+        400:
+          description: "Incorrect input"
+        500:
+          description: "Internal Server Error"
+    put:
+      tags:
+      - "Bugs"
+      summary: "Updates a Bug"
+      operationId: "updateBug"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Bug object to update"
+        required: true
+        schema:
+          $ref: "#/definitions/Bug"
+      responses:
+        200:
+          description: "successfully updated"
+        400:
+          description: "Incorrect input"
+        500:
+          description: "Internal Server Error"
+definitions:
+  Developer:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+  Developers:
+    type: "array"
+    items:
+      $ref: "#/definitions/Developer"
+  Issue:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      title:
+        type: "string"
+      description:
+        type: "string"
+      date:
+        type: "string"
+      developer:
+        $ref: "#/definitions/Developer"
+  Story:
+    type: "object"
+    properties:
+      issue:
+        $ref: "#/definitions/Issue"
+      estimation:
+        type: "integer"
+      status:
+        type: "string"
+        enum:
+        - NEW
+        - ESTIMATED
+        - COMPLETED
+  Bug:
+    type: "object"
+    properties:
+      issue:
+        $ref: "#/definitions/Issue"
+      priority:
+        type: "string"
+        enum:
+        - CRITICAL
+        - MAJOR
+        - MINOR
+      status:
+        type: "string"
+        enum:
+        - NEW
+        - VERIFIED
+        - RESOLVED
+  Stories:
+    type: "array"
+    items:
+      $ref: "#/definitions/Story"
+  Bugs:
+    type: "array"
+    items:
+      $ref: "#/definitions/Bug"
