@@ -49,6 +49,7 @@ public class BugServiceTest {
         bug.setIssue(issue);
         bug.setStatus(BugStatus.RESOLVED);
         bugService.updateBugs(bug);
+        bugs.parallelStream();
         Assert.assertEquals(BugStatus.RESOLVED,
                 bugs.stream()
                         .filter(bugItem -> bugItem.getIssue().getId().equals(bug.getIssue().getId()))

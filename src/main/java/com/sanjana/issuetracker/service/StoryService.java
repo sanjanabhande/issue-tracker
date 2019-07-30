@@ -1,5 +1,6 @@
 package com.sanjana.issuetracker.service;
 
+import com.sanjana.issuetracker.exception.BigStoryException;
 import com.sanjana.issuetracker.exception.DeveloperNotFoundException;
 import com.sanjana.issuetracker.exception.InvalidUpdateException;
 import com.sanjana.issuetracker.exception.StoryNotFoundException;
@@ -24,7 +25,7 @@ public class StoryService {
     @Autowired
     private DeveloperRepository developerRepository;
 
-    public void createStory(Story story){
+    public void createStory(final Story story){
         if (story.getEstimation()!=null){
             story.setStatus(StoryStatus.ESTIMATED);
         } else {
@@ -35,6 +36,7 @@ public class StoryService {
         }
         story.getIssue().setId(++IssueRepository.issueId);
         story.getIssue().setCreationDate(new Date());
+        checkStoryEstimate(story);
         storyRepository.createStory(story);
     }
 
@@ -42,23 +44,24 @@ public class StoryService {
         return storyRepository.getStories();
     }
 
-    public void updateStory(Story story){
-        Optional<Story> updateStoryById = storyRepository.getStories()
+    public void updateStory(final Story story){
+        final Optional<Story> updateStoryById = storyRepository.getStories()
                 .stream()
                 .filter(updateStory -> updateStory.getIssue().getId()==story.getIssue().getId())
                 .findFirst();
         checkStoryPresent(updateStoryById);
+        checkStoryEstimate(story);
         updateIssueDetails(story,updateStoryById);
         updateStoryDetails(story,updateStoryById);
     }
 
-    private void checkStoryPresent(Optional<Story> updateStoryById){
+    private void checkStoryPresent(final Optional<Story> updateStoryById){
         if (!updateStoryById.isPresent()){
             throw new StoryNotFoundException("Story to be updated does not exist");
         }
     }
 
-    private void updateIssueDetails(Story story, Optional<Story> updateStoryById){
+    private void updateIssueDetails(final Story story, final Optional<Story> updateStoryById){
         if (story.getIssue().getDeveloper()!=null && story.getIssue().getDeveloper().getName()!=null && story.getIssue().getDeveloper().getName()!=""){
             checkDeveloperAvailable(story);
             updateStoryById.get().getIssue().setDeveloper(story.getIssue().getDeveloper());
@@ -74,13 +77,19 @@ public class StoryService {
         }
     }
 
-    private void checkDeveloperAvailable(Story story){
+    private void checkDeveloperAvailable(final Story story){
         if (!developerRepository.getDevelopers().contains(story.getIssue().getDeveloper())){
             throw new DeveloperNotFoundException("Developer not found to assign the story");
         }
     }
 
-    private void updateStoryDetails(Story story, Optional<Story> updateStoryById){
+    private void checkStoryEstimate(final Story story){
+        if(story.getEstimation()!=null && story.getEstimation()>10){
+            throw new BigStoryException("story estimate more than 10 is not allowed. please split the story");
+        }
+    }
+
+    private void updateStoryDetails(final Story story, final Optional<Story> updateStoryById){
         if (story.getStatus()!=null){
             updateStoryById.get().setStatus(story.getStatus());
         }

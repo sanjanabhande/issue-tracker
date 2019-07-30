@@ -23,7 +23,7 @@ public class BugController {
     private BugService bugService;
 
     @PostMapping(value = "/bugs")
-    public ResponseEntity<String> createBug(@RequestBody Bug bug){
+    public ResponseEntity<String> createBug(@RequestBody final Bug bug){
         bugService.createBug(bug);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -34,7 +34,7 @@ public class BugController {
     }
 
     @PutMapping(value = "/bugs")
-    public ResponseEntity<String> updateBugs(@RequestBody Bug bug){
+    public ResponseEntity<String> updateBugs(@RequestBody final Bug bug){
         try {
             bugService.updateBugs(bug);
             return new ResponseEntity<>(HttpStatus.OK);

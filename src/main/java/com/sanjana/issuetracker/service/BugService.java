@@ -24,7 +24,7 @@ public class BugService {
     @Autowired
     private DeveloperRepository developerRepository;
 
-    public void createBug(Bug bug){
+    public void createBug(final Bug bug){
         bug.setStatus(BugStatus.NEW);
         bug.getIssue().setId(++IssueRepository.issueId);
         bug.getIssue().setCreationDate(new Date());
@@ -38,8 +38,8 @@ public class BugService {
         return bugRepository.getBugs();
     }
 
-    public void updateBugs(Bug bug){
-        Optional<Bug> updateBugById = bugRepository.getBugs()
+    public void updateBugs(final Bug bug){
+        final Optional<Bug> updateBugById = bugRepository.getBugs()
                 .stream()
                 .filter(bugId -> bugId.getIssue().getId()==bug.getIssue().getId())
                 .findFirst();
@@ -48,13 +48,13 @@ public class BugService {
         updateBugDetails(bug,updateBugById);
     }
 
-    private void checkBugPresent(Optional<Bug> updateBugById){
+    private void checkBugPresent(final Optional<Bug> updateBugById){
         if (!updateBugById.isPresent()){
             throw new BugNotFoundException("Bug to be updated does not exist");
         }
     }
 
-    private void updateIssueDetails(Bug bug, Optional<Bug> updateBugById){
+    private void updateIssueDetails(final Bug bug, final Optional<Bug> updateBugById){
         if (bug.getIssue().getDeveloper()!=null && bug.getIssue().getDeveloper().getName()!=null && bug.getIssue().getDeveloper().getName()!=""){
             checkDeveloperAvailable(bug);
             updateBugById.get().getIssue().setDeveloper(bug.getIssue().getDeveloper());
@@ -70,13 +70,13 @@ public class BugService {
         }
     }
 
-    private void checkDeveloperAvailable(Bug bug){
+    private void checkDeveloperAvailable(final Bug bug){
         if (!developerRepository.getDevelopers().contains(bug.getIssue().getDeveloper())){
             throw new DeveloperNotFoundException("Developer not found to assign the bug");
         }
     }
 
-    private void updateBugDetails(Bug bug, Optional<Bug> updateBugById){
+    private void updateBugDetails(final Bug bug, final Optional<Bug> updateBugById){
         if (bug.getPriority()!=null){
             updateBugById.get().setPriority(bug.getPriority());
         }

@@ -24,6 +24,9 @@
             <a class="nav-link" id="bug-tab" data-toggle="tab" href="#bug" role="tab" aria-controls="bug" aria-selected="false">Bugs</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" id="sprint-plan-tab" data-toggle="tab" href="#sprint-plan" role="tab" aria-controls="sprint-plan" aria-selected="false">Sprint plan</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
         </li>
     </ul>
@@ -88,6 +91,20 @@
                 <br/>
                 <div class="row" id="bug-view"></div>
 
+            </div>
+        </div>
+        <div class="tab-pane fade" id="sprint-plan" role="tabpanel" aria-labelledby="sprint-plan-tab">
+            <div class="container" id="sprint-plan-container">
+                <br/>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" onclick="planSprint()">Plan</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="accordion" id="sprint-plan-accordian">
+
+                </div>
             </div>
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -206,5 +223,6 @@
 <script src="../js/developer.js"></script>
 <script src="../js/story.js"></script>
 <script src="../js/bug.js"></script>
+<script src="../js/sprint-plan.js"></script>
 </body>
 </html>

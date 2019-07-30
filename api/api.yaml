@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "This is a simple issue tracker application. It is a spring boot app, which exposes  REST end points to create/delete developers and also create/update stories and bugs"
+  description: "This is a simple issue tracker application. It is a spring boot app, which exposes  REST end points to create/delete developers and also create/update stories and bugs. We can also create sprints by auto allocation of stories to developers."
   version: "1.0.0"
   title: "Issue tracker application"
   contact:
@@ -187,6 +187,21 @@ paths:
           description: "Incorrect input"
         500:
           description: "Internal Server Error"
+  /plan:
+    post:
+      tags:
+      - "Sprint Planning"
+      summary: "Planning a sprint"
+      operationId: "plan"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/SprintResponse"
+        500:
+          description: "Internal Server Error"
 definitions:
   Developer:
     type: "object"
@@ -248,3 +263,19 @@ definitions:
     type: "array"
     items:
       $ref: "#/definitions/Bug"
+  Sprint:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      stories:
+        $ref: "#/definitions/Story"
+  Sprints:
+    type: "array"
+    items:
+      $ref: "#/definitions/Sprint"
+  SprintResponse:
+    type: "object"
+    properties:
+      sprints:
+        $ref: "#/definitions/Sprints"
