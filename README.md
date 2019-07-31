@@ -38,7 +38,14 @@ The application uses an in-memory storage to keep it fast.
 
 **Test data for developers and stories are created on startup using spring's post construct.**
 
-**Test cases are also included, powered by junit + mockito to ensure all scenarios are covered**
+**Test cases for story, bug and developer are also included, powered by junit + mockito to ensure all scenarios are covered**
+
+### Story planning Algorithm
+* The stories are sorted by story estimate.
+* Each developer is assigned `10` points per sprint.
+* Developers are randomly allocated to stories based on the estimate and their capacity.
+* Once max stories for a sprint is reached (i.e) `(developers-count)*10 = sprint capacity`, 
+a new sprint is formed and the above steps are repeated, until all stories are allocated.
 
 ### UI design
 * It is a single page application with 4 tabs, 3 for each module and one tab for contact information
