@@ -1,6 +1,7 @@
 package com.sanjana.issuetracker.service;
 
 import com.sanjana.issuetracker.exception.BigStoryException;
+import com.sanjana.issuetracker.exception.DeveloperAssignmentNotAllowedException;
 import com.sanjana.issuetracker.exception.DeveloperNotFoundException;
 import com.sanjana.issuetracker.exception.InvalidUpdateException;
 import com.sanjana.issuetracker.exception.StoryNotFoundException;
@@ -32,7 +33,7 @@ public class StoryService {
             story.setStatus(StoryStatus.NEW);
         }
         if (story.getIssue().getDeveloper()!=null && story.getIssue().getDeveloper().getName()!=null && story.getIssue().getDeveloper().getName()!=""){
-            checkDeveloperAvailable(story);
+            throw new DeveloperAssignmentNotAllowedException("Developer assignment not allowed at the time of creation");
         }
         story.getIssue().setId(++IssueRepository.issueId);
         story.getIssue().setCreationDate(new Date());

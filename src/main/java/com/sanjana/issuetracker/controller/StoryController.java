@@ -1,5 +1,7 @@
 package com.sanjana.issuetracker.controller;
 
+import com.sanjana.issuetracker.exception.BigStoryException;
+import com.sanjana.issuetracker.exception.DeveloperAssignmentNotAllowedException;
 import com.sanjana.issuetracker.exception.DeveloperNotFoundException;
 import com.sanjana.issuetracker.exception.InvalidUpdateException;
 import com.sanjana.issuetracker.exception.StoryNotFoundException;
@@ -27,7 +29,7 @@ public class StoryController {
         try {
             storyService.createStory(story);
             return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (DeveloperNotFoundException e){
+        } catch (DeveloperNotFoundException | DeveloperAssignmentNotAllowedException | BigStoryException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
@@ -42,7 +44,7 @@ public class StoryController {
         try {
             storyService.updateStory(story);
             return new ResponseEntity<>(HttpStatus.OK);
-        } catch (DeveloperNotFoundException | InvalidUpdateException ex){
+        } catch (DeveloperNotFoundException | InvalidUpdateException | BigStoryException ex){
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
         } catch (StoryNotFoundException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);

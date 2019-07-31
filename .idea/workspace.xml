@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d47eae6-142a-462d-b332-93b4789ca05e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/BigStoryException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/TestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/sprint-plan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/api.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/BugController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/BugController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Issue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Sprint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Sprint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Story.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/repository/StoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/repository/StoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/BugService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/BugService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/DeveloperAssignmentNotAllowedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/StoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/StoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/developer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/story.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/story.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sanjana/issuetracker/service/BugServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sanjana/issuetracker/service/BugServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +27,8 @@
         <counts>
           <entry key="class" value="2" />
           <entry key="html" value="2" />
-          <entry key="java" value="31" />
-          <entry key="js" value="3" />
+          <entry key="java" value="33" />
+          <entry key="js" value="4" />
           <entry key="md" value="1" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="2" />
@@ -49,8 +38,8 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="HTML" value="2" />
-          <entry key="JAVA" value="31" />
-          <entry key="JavaScript" value="3" />
+          <entry key="JAVA" value="33" />
+          <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="1" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="2" />
@@ -59,16 +48,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="176" />
-          <entry key="java" value="823" />
-          <entry key="js" value="461" />
+          <entry key="java" value="908" />
+          <entry key="js" value="468" />
           <entry key="md" value="619" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="176" />
-          <entry key="JAVA" value="823" />
-          <entry key="JavaScript" value="461" />
+          <entry key="JAVA" value="908" />
+          <entry key="JavaScript" value="468" />
           <entry key="Markdown" value="619" />
         </counts>
       </usages-collector>
@@ -76,28 +65,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/repository/StoryRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-              <folding>
-                <element signature="e#468#469#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/BugService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/IssuetrackerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -116,12 +83,30 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/StoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="46" column="89" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/story.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="47">
+              <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="537">
-                <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
+              <first_editor relative-caret-position="375">
+                <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
               </first_editor>
               <second_editor />
             </state>
@@ -131,8 +116,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+            <state relative-caret-position="227">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/DeveloperAssignmentNotAllowedException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+              <folding>
+                <element signature="e#220#221#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,15 +167,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/repository/IssueRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -207,7 +195,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Issue.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/model/Story.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/story.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/html/developer.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/html/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/sprint-plan.js" />
@@ -219,8 +206,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/BugService.java" />
         <option value="$PROJECT_DIR$/api/api.yaml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/BigStoryException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/DeveloperAssignmentNotAllowedException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/StoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/story.js" />
       </list>
     </option>
   </component>
@@ -367,7 +357,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564514240145" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564552826977" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -434,10 +424,10 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Job Explorer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="DB Execution Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" weight="0.3286119" />
@@ -571,13 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/story.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/sprint-plan.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -633,13 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/StoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -706,20 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/api.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4200">
-          <caret line="280" column="37" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/BigStoryException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -733,10 +695,48 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="537">
-            <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
+          <first_editor relative-caret-position="375">
+            <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/api.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4200">
+          <caret line="280" column="37" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/exception/DeveloperAssignmentNotAllowedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+          <folding>
+            <element signature="e#220#221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/service/StoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sanjana/issuetracker/controller/StoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="46" column="89" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/story.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
         </state>
       </provider>
     </entry>

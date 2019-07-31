@@ -45,6 +45,7 @@ function getStoryHTML(response){
 getAllStories();
 
 function editStory(story){
+    $('#storyDeveloperInput').prop("disabled", false);
     $("#storyTitleInput").val(story.issue.title);
     $("#storyDescriptionInput").val(story.issue.description);
     if(story.issue.developer!=undefined || story.issue.developer!=null){
@@ -57,6 +58,7 @@ function editStory(story){
 }
 
 function createNewStory(){
+    $("#storyDeveloperInput").attr("disabled", "disabled");
     $("#storyTitleInput").val("");
     $("#storyDescriptionInput").val("");
     $("#storyDeveloperInput").val("");
