@@ -29,7 +29,8 @@ It uses spring boot for the restful web services to communicate with the front e
 
 The application is split broadly into 3 modules:
 * Developer - Get, Create and Delete
-* Story - Get, Create and Update
+* Story - Get, Create and Update. Developer not allowed to be assigned during story creation. 
+Story estimation of greater than 10 points is not allowed as it exceeds the one developer - one sprint capacity.
 * Bug - Get, Create and Update
 * Plan - Plan a sprint, auto allocate developers for stories and forms sprints
 
